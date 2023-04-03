@@ -24,11 +24,6 @@ async def bimgecenhaftasali(bot, message):
         url = "https://www.bim.com.tr/Categories/680/afisler.aspx"
         r = requests.get(url)
         c = BeautifulSoup(r.content, "lxml")
-        filtre = c.findAll('a', attrs={"class":"download"})
-        sec = filtre[0]
-        href = sec.get('href')
-        foto = f"https://www.bim.com.tr{href}"
-        fotolar.append(foto)
         kucukler = c.findAll('div', attrs={"class":"smallArea col-4 col-md-3"})[0] 
         smal = kucukler.findAll('a', attrs={"class":"small"})
         for i in smal:
@@ -54,11 +49,6 @@ async def bimgecenhaftacuma(bot, message):
         url = "https://www.bim.com.tr/Categories/680/afisler.aspx"
         r = requests.get(url)
         c = BeautifulSoup(r.content, "lxml")
-        filtre = c.findAll('a', attrs={"class":"download"})
-        sec = filtre[1]
-        href = sec.get('href')
-        foto = f"https://www.bim.com.tr{href}"
-        fotolar.append(foto)
         kucukler = c.findAll('div', attrs={"class":"smallArea col-4 col-md-3"})[1] 
         smal = kucukler.findAll('a', attrs={"class":"small"})
         for i in smal:
@@ -83,11 +73,6 @@ async def bimbuhaftasali(bot, message):
         url = "https://www.bim.com.tr/Categories/680/afisler.aspx"
         r = requests.get(url)
         c = BeautifulSoup(r.content, "lxml")
-        filtre = c.findAll('a', attrs={"class":"download"})
-        sec = filtre[2]
-        href = sec.get('href')
-        foto = f"https://www.bim.com.tr{href}"
-        fotolar.append(foto)
         kucukler = c.findAll('div', attrs={"class":"smallArea col-4 col-md-3"})[2] 
         smal = kucukler.findAll('a', attrs={"class":"small"})
         for i in smal:
@@ -113,11 +98,6 @@ async def bimbuhaftacuma(bot, message):
         url = "https://www.bim.com.tr/Categories/680/afisler.aspx"
         r = requests.get(url)
         c = BeautifulSoup(r.content, "lxml")
-        filtre = c.findAll('a', attrs={"class":"download"})
-        sec = filtre[3]
-        href = sec.get('href')
-        foto = f"https://www.bim.com.tr{href}"
-        fotolar.append(foto)
         kucukler = c.findAll('div', attrs={"class":"smallArea col-4 col-md-3"})[3] 
         smal = kucukler.findAll('a', attrs={"class":"small"})
         for i in smal:
@@ -142,11 +122,6 @@ async def bimgelecekhaftasali(bot, message):
         url = "https://www.bim.com.tr/Categories/680/afisler.aspx"
         r = requests.get(url)
         c = BeautifulSoup(r.content, "lxml")
-        filtre = c.findAll('a', attrs={"class":"download"})
-        sec = filtre[4]
-        href = sec.get('href')
-        foto = f"https://www.bim.com.tr{href}"
-        fotolar.append(foto)
         kucukler = c.findAll('div', attrs={"class":"smallArea col-4 col-md-3"})[4] 
         smal = kucukler.findAll('a', attrs={"class":"small"})
         for i in smal:
@@ -172,11 +147,6 @@ async def bimgelecekhaftacuma(bot, message):
         url = "https://www.bim.com.tr/Categories/680/afisler.aspx"
         r = requests.get(url)
         c = BeautifulSoup(r.content, "lxml")
-        filtre = c.findAll('a', attrs={"class":"download"})
-        sec = filtre[5]
-        href = sec.get('href')
-        foto = f"https://www.bim.com.tr{href}"
-        fotolar.append(foto)
         kucukler = c.findAll('div', attrs={"class":"smallArea col-4 col-md-3"})[5] 
         smal = kucukler.findAll('a', attrs={"class":"small"})
         for i in smal:
