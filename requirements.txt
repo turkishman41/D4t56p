@@ -2,3 +2,4 @@ pyrogram
 TgCrypto
 requests
 bs4
+lxml
