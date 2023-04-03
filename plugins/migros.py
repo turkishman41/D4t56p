@@ -4,7 +4,6 @@ from pyrogram import Client, filters
 import requests
 from bs4 import BeautifulSoup
 import logging
-from pdf2image import convert_from_path
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     handlers=[logging.FileHandler('log.txt'), logging.StreamHandler()],
                     level=logging.INFO)
@@ -32,11 +31,6 @@ async def migrosgecen(bot, message):
             chat_id = message.from_user.id,
             document = file_name,
             caption = tarih)
-        images = convert_from_path(file_name)
-        for img in images:
-            await bot.send_photo(
-                chat_id = message.from_user.id, 
-                photo = img)
     except Exception as e:
         await bot.send_message(message.from_user.id, e)
 
