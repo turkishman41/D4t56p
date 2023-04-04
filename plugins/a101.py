@@ -160,8 +160,9 @@ async def dizipallink(bot, message):
         sayi = int(say)+ 1
         for a in range(sayi):
             LOGGER.info(a)
-            uri = dizipalurltemp.split("bolum-")
-            url = dizipalurltemp.replace(str(uri[1]), str(a))
+            uri = dizipalurltemp.split("bolu")
+            t = f"m-{a}"
+            url = dizipalurltemp.replace(str(uri[1]), t)
             await message.reply_text(url)
     except Exception as e:
         await message.reply_text(e)
