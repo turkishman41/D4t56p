@@ -177,7 +177,7 @@ async def dizipallink(bot, message):
             p = y.text.split('file:"')
             m3u8 = p[1].split('"')[0]
             text += f"{url}\n\n`{m3u8}`"
-            tex += f"{url}\n\n`{m3u8}\n\n`"
+            tex = f"{url}\n\n`{m3u8}\n\n`"
             await message.reply_text(tex)
         adtemp = dizipalurltemp.split("dizi/")[1]
         ad = adtemp.split("/")
