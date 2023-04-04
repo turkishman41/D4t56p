@@ -4,6 +4,11 @@ from pyrogram import Client, filters
 import requests
 from bs4 import BeautifulSoup
 import logging
+import telegraph
+
+telegraph = Telegraph()
+telegraph.create_account(short_name='Dizipal Bot')
+
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     handlers=[logging.FileHandler('log.txt'), logging.StreamHandler()],
                     level=logging.INFO)
@@ -158,6 +163,7 @@ async def dizipallink(bot, message):
         dizipalurltemp = urltemp[1]
         say = urltemp[2]
         sayi = int(say)+ 1
+        text = ""
         for a in range(1, sayi):
             uri = dizipalurltemp.split("bolu")
             t = f"m-{a}"
@@ -170,8 +176,15 @@ async def dizipallink(bot, message):
             y = requests.get(link)
             p = y.text.split('file:"')
             m3u8 = p[1].split('"')[0]
-            text = f"{url}\n\n`{m3u8}`"
-            await message.reply_text(text)
+            text += f"{url}\n\n`{m3u8}`"
+            tex += f"{url}\n\n`{m3u8}\n\n`"
+            await message.reply_text(tex)
+        adtemp = dizipalurltemp.split("dizi/")[1]
+        ad = adtemp.split("/")
+        link = telegraph.create_page(
+                f"{ad} Dizipal M3u8 Linkleri",
+                html_content=text)
+        await message.reply_text(f"Telegraph Link:\n\n{link['url']}")
     except Exception as e:
         await message.reply_text(e)
 
