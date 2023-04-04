@@ -158,12 +158,14 @@ async def dizipallink(bot, message):
         dizipalurltemp = urltemp[1]
         say = urltemp[2]
         sayi = int(say)+ 1
-        for a in range(sayi):
-            LOGGER.info(a)
+        for a in range(1, sayi):
             uri = dizipalurltemp.split("bolu")
             t = f"m-{a}"
             url = dizipalurltemp.replace(str(uri[1]), t)
             await message.reply_text(url)
+            istek = requests.get(url)
+            corba = BeautifulSoup(istek.content, "lxml")
+            LOGGER.info(corba)
     except Exception as e:
         await message.reply_text(e)
 
