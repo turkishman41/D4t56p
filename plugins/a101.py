@@ -184,7 +184,7 @@ async def dizipallink(bot, message):
         ad = adtemp.split("/")
         link = telegraph.create_page(
                 f"{ad} Dizipal M3u8 Linkleri",
-                html_content=text)
+                html_content=f"{text}")
         await message.reply_text(f"Telegraph Link:\n\n{link['url']}")
     except Exception as e:
         await message.reply_text(e)
