@@ -154,10 +154,12 @@ async def a101genelgetir(bot, message):
 @Client.on_message(filters.command('dizipal'))
 async def dizipallink(bot, message):
     try:
-        dizipalurl = "https://n.pd2n2.buzz/embed-8il3br6p7k9r.html"
-        r = requests.get(dizipalurl)
-        c = BeautifulSoup(r.content, "lxml")
-        LOGGER.info(c)
+        urltemp = message.text.split(" ")
+        dizipalurltemp = urltemp[1]
+        say = int(urltemp[2])
+        sayi = say + 1
+        for a range(say):
+            await message.reply_text(a) 
     except Exception as e:
         await message.reply_text(e)
 
