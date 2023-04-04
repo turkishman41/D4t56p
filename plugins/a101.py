@@ -154,7 +154,7 @@ async def a101genelgetir(bot, message):
 @Client.on_message(filters.command('dizipal'))
 async def dizipallink(bot, message):
     try:
-        dizipalurl = "https://www.dizipal566.com/dizi/konusanlar/sezon-1/bolum-1"
+        dizipalurl = "https://n.pd2n2.buzz/embed-8il3br6p7k9r.html"
         r = requests.get(dizipalurl)
         c = BeautifulSoup(r.content, "lxml")
         LOGGER.info(c)
