@@ -166,9 +166,12 @@ async def dizipallink(bot, message):
             corba = BeautifulSoup(istek.content, "lxml")
             g = corba.find('div', attrs={"class":"video-banner"})
             d = g.find("iframe")
-            text = d.get("src")
+            link = d.get("src")
+            y = requests.get(link)
+            p = y.text.split('file:"')
+            m3u8 = p[1].split('"')[0]
+            text = f"{url}\n\n{m3u8}"
             await message.reply_text(text)
-            LOGGER.info(corba)
     except Exception as e:
         await message.reply_text(e)
 
