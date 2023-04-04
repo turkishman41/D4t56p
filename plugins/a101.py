@@ -170,7 +170,7 @@ async def dizipallink(bot, message):
             y = requests.get(link)
             p = y.text.split('file:"')
             m3u8 = p[1].split('"')[0]
-            text = f"{url}\n\n{m3u8}"
+            text = f"{url}\n\n`{m3u8}`"
             await message.reply_text(text)
     except Exception as e:
         await message.reply_text(e)
