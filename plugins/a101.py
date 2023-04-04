@@ -160,3 +160,13 @@ async def dizipallink(bot, message):
         LOGGER.info(c)
     except Exception as e:
         await message.reply_text(e)
+
+@Client.on_message(filters.command('log'))
+async def log_handler(bot, message):
+    with open('log.txt', 'rb') as f:
+        try:
+            await bot.send_document(document=f,
+                                  file_name=f.name, reply_to_message_id=message.id,
+                                  chat_id=message.chat.id, caption=f.name)
+        except Exception as e:
+            await message.reply_text(str(e))
