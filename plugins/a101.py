@@ -164,7 +164,7 @@ async def dizipallink(bot, message):
             url = dizipalurltemp.replace(str(uri[1]), t)
             istek = requests.get(url)
             corba = BeautifulSoup(istek.content, "lxml")
-            g = corba.find('div' attrs={"class":"video-banner"})
+            g = corba.find('div', attrs={"class":"video-banner"})
             d = g.find("iframe")
             text = d.get("src")
             await message.reply_text(text)
