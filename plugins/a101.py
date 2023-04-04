@@ -158,7 +158,7 @@ async def dizipallink(bot, message):
         dizipalurltemp = urltemp[1]
         say = int(urltemp[2])
         sayi = say + 1
-        for a range(say):
+        for a in range(say):
             await message.reply_text(a) 
     except Exception as e:
         await message.reply_text(e)
