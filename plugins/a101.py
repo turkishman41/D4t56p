@@ -5,6 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 import logging
 import telegraph
+from telegraph import Telegraph
 
 telegraph = Telegraph()
 telegraph.create_account(short_name='Dizipal Bot')
