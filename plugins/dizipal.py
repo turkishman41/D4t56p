@@ -45,8 +45,6 @@ async def filmlinkgetir(bot, message, dizipalurltemp):
         d = g.find("iframe")
         link = d.get("src")
         y = requests.get(link)
-        LOGGER.info(y.content)
-        await message.reply_text(y.content)
         p = y.text.split('file:"')
         subtext = "Alt Yazılar:\n\n"
         if '[Ingilizce]' in y.text:
