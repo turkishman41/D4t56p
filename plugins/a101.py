@@ -177,15 +177,15 @@ async def dizipallink(bot, message):
             y = requests.get(link)
             p = y.text.split('file:"')
             m3u8 = p[1].split('"')[0]
-            text += f'Kaynak Url: {url}<br>M3u8: {m3u8}<br><br>'
+            text += f'Kaynak Url: {url}\nM3u8: {m3u8}\n\n'
             tex = f"{url}\n\n`{m3u8}`"
             await message.reply_text(tex)
         adtemp = dizipalurltemp.split("dizi/")[1]
         ad = adtemp.split("/")[0] 
-        link = telegraph.create_page(
-                f"{ad} Dizipal M3u8 Linkleri",
-                html_content=f"{text}")
-        await message.reply_text(f"Telegraph Link:\n\n{link['url']}")
+        m3u8file = f"{ad} Dizipal M3u8 Linkleri.txt"
+        with open(m3u8file, "wb") as dosya:
+               dosya.write(text)  
+        await message.reply_document(m3u8file)
     except Exception as e:
         await message.reply_text(e)
 
