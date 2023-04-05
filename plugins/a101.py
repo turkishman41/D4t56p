@@ -183,7 +183,7 @@ async def dizipallink(bot, message):
         adtemp = dizipalurltemp.split("dizi/")[1]
         ad = adtemp.split("/")[0] 
         m3u8file = f"{ad} Dizipal M3u8 Linkleri.txt"
-        with open(m3u8file, "wb") as dosya:
+        with open(m3u8file) as dosya:
                dosya.write(''.join(text))  
         await message.reply_document(m3u8file)
     except Exception as e:
