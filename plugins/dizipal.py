@@ -35,7 +35,7 @@ async def dizilinkgetir(bot, message, dizipalurltemp, say):
 
 async def filmlinkgetir(bot, message, dizipalurltemp):
     try:
-        istek = requests.get(url)
+        istek = requests.get(dizipalurltemp)
         corba = BeautifulSoup(istek.content, "lxml")
         g = corba.find('div', attrs={"class":"video-banner"})
         d = g.find("iframe")
