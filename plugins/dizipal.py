@@ -104,3 +104,14 @@ async def dizipalfilmlink(bot, message):
         await filmlinkgetir(bot, message, dizipalurltemp)
     except Exception as e:
         await message.reply_text(e)
+
+@Client.on_message(filters.command('dizigom'))
+async def dizigom(bot, message):
+    try:
+        urltemp = message.text.split(" ")
+        url = urltemp[1]
+        r = requests.get(url)
+        c = BeautifulSoup(r.content, "lxml")
+        LOGGER.info(c)
+    except Exception as e:
+        await message.reply_text(e)
