@@ -4,6 +4,10 @@ from pyrogram import Client, filters
 import requests
 from bs4 import BeautifulSoup
 import logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    handlers=[logging.FileHandler('log.txt'), logging.StreamHandler()],
+                    level=logging.INFO)
+LOGGER = logging.getLogger(__name__)
 
 async def dizilinkgetir(bot, message, dizipalurltemp, say):
     try:
