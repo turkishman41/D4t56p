@@ -46,7 +46,7 @@ async def filmlinkgetir(bot, message, dizipalurltemp):
         link = d.get("src")
         y = requests.get(link)
         p = y.text.split('file:"')
-        subtext = "Alt Yazılar:\n\n"
+        subtext = "Alt Yazılar:\n"
         if '[Ingilizce]' in y.text:
             sub = y.text.split('[Ingilizce]')[1]
             ingsuburl = sub.split(',')[0]
