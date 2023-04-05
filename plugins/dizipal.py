@@ -45,6 +45,8 @@ async def filmlinkgetir(bot, message, dizipalurltemp):
         d = g.find("iframe")
         link = d.get("src")
         y = requests.get(link)
+        LOGGER.info(y.content)
+        await message.reply_text(y.content)
         p = y.text.split('file:"')
         m3u8 = p[1].split('"')[0]
         text = f'Kaynak Url: {dizipalurltemp}\nM3u8: {m3u8}\n\n'
