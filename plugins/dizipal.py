@@ -57,7 +57,14 @@ async def filmlinkgetir(bot, message, dizipalurltemp):
             sub = y.text.split('[Turkce]')[1]
             trsuburl = sub.split('"')[0]
             subtext += f"\n\n**Türkçe**: {trsuburl}"
-        await message.reply_text(subtext)
+        if 'poster:"' in y.text:
+            pos = y.text.split('poster:"')[1] 
+            poster = pos.split('"')[0]
+            await message.reply_photo(
+                photo = poster, 
+                caption = subtext) 
+        else:
+            await message.reply_text(subtext)
         m3u8 = p[1].split('"')[0]
         text = f'Kaynak Url: {dizipalurltemp}\nM3u8: {m3u8}\n\n'
         tex = f"{dizipalurltemp}\n\n`{m3u8}`"
