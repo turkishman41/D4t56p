@@ -48,6 +48,16 @@ async def filmlinkgetir(bot, message, dizipalurltemp):
         LOGGER.info(y.content)
         await message.reply_text(y.content)
         p = y.text.split('file:"')
+        subtext = "Alt Yazılar:\n\n"
+        if '[Ingilizce]' in y.text:
+            sub = y.text.split('[Ingilizce]')[1]
+            ingsuburl = sub.split(',')[0]
+            subtext += f"\n\n**İngilizce**: {ingsuburl}"
+        if '[Turkce]' in y.text:
+            sub = y.text.split('[Turkce]')[1]
+            trsuburl = sub.split('"')[0]
+            subtext += f"\n\n**Türkçe**: {trsuburl}"
+        await message.reply_text(subtext)
         m3u8 = p[1].split('"')[0]
         text = f'Kaynak Url: {dizipalurltemp}\nM3u8: {m3u8}\n\n'
         tex = f"{dizipalurltemp}\n\n`{m3u8}`"
