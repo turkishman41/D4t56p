@@ -43,7 +43,7 @@ async def filmlinkgetir(bot, message, dizipalurltemp):
         y = requests.get(link)
         p = y.text.split('file:"')
         m3u8 = p[1].split('"')[0]
-        text += f'Kaynak Url: {url}\nM3u8: {m3u8}\n\n'
+        text = f'Kaynak Url: {url}\nM3u8: {m3u8}\n\n'
         tex = f"{url}\n\n`{m3u8}`"
         await message.reply_text(tex)
         adtemp = dizipalurltemp.split(".com/")[1]
