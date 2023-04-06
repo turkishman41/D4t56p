@@ -25,6 +25,8 @@ async def dizilinkgetir(bot, message, dizipalurltemp, say):
             y = requests.get(link)
             p = y.text.split('file:"')
             m3u8 = p[1].split('"')[0]
+            u = requests.get(m3u8)
+            LOGGER.info(u.content)
             text += f'Kaynak Url: {url}\nM3u8: {m3u8}\n\n'
             tex = f"{url}\n\n`{m3u8}`"
             await message.reply_text(tex)
