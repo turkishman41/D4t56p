@@ -20,6 +20,7 @@ async def flip5(bot, message):
             dosyam = f"{say}.jpg"
             say += 1 
             r = requests.get(url)
+            LOGGER.info(r.content)
             with open(dosyam, "wb") as f:
                 f.write(r.content)
             await message.reply_photo(dosyam)
