@@ -13,7 +13,7 @@ LOGGER = logging.getLogger(__name__)
 async def flip5(bot, message):
     try:
         mestemp = message.text.split(" ")
-        kitap = urltemp[1]
+        kitap = mestemp[1]
         say = 1
         while True:
             url = f"http://online.fliphtml5.com/{kitap}/files/large/{say}.jpg"
