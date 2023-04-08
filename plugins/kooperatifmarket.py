@@ -23,7 +23,7 @@ async def dizigom(bot, message):
         proxy = "http://ebf4eec57ff82dd93e49e244671fe88c67bf0168:antibot=true@proxy.zenrows.com:8001"
         proxies = {"http": proxy, "https": proxy}
         i = requests.get(url, proxies=proxies, verify=False)
-        embedtemp = i.content.split('"contentUrl":"')[1]
+        embedtemp = i.text.split('"contentUrl":"')[1]
         embed = embedtemp.split('"')[0]
         text = embed.replace("\/", "/")
         await message.reply_text(text)
