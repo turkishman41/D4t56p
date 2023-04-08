@@ -20,7 +20,9 @@ headers = {
 async def dizigom(bot, message):
     try:
         url = message.text.split(" ")[1]
-        i = ac.get(url, headers=headers)
+        proxy = "http://ebf4eec57ff82dd93e49e244671fe88c67bf0168:antibot=true@proxy.zenrows.com:8001"
+        proxies = {"http": proxy, "https": proxy}
+        i = requests.get(url, proxies=proxies, verify=False)
         corba = BeautifulSoup(i.content, "lxml")
         LOGGER.info(corba)
     except Exception as e:
