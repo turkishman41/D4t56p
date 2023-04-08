@@ -15,7 +15,7 @@ butonlar = InlineKeyboardMarkup([[InlineKeyboardButton(f'Bim Gelecek Hafta Salı
 async def koop(bot, message):
     try:
         url = "https://www.akakce.com/brosurler/kooperatifmarket-15-mart-2023-aktuel-katalogu-firsat-indirim-26738"
-        i = requests.post(url)
+        i = requests.get(url)
         corba = BeautifulSoup(i.content, "lxml")
         LOGGER.info(corba)
     except Exception as e:
