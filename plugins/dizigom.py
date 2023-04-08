@@ -2,6 +2,7 @@ from pyrogram import Client, filters
 import requests
 from bs4 import BeautifulSoup
 import logging 
+import selenium
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     handlers=[logging.FileHandler('log.txt'), logging.StreamHandler()],
