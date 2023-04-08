@@ -17,7 +17,11 @@ butonlar = InlineKeyboardMarkup([[InlineKeyboardButton(f'Bim Gelecek Hafta Salı
 async def dizigom(bot, message):
     try:
         url = message.text.split(" ")[1]
-        browser = webdriver.Firefox()
+        firefox_options = webdriver.FirefoxOptions()
+        browser = webdriver.Remote(
+            command_executor='http://www.example.com',
+            options=firefox_options
+        )
         i = browser.get(url) 
         embedtemp = i.text.split('"contentUrl":"')[1]
         embed = embedtemp.split('"')[0]
