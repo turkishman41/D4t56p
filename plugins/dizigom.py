@@ -20,14 +20,12 @@ headers = {
 async def dizigom(bot, message):
     try:
         url = message.text.split(" ")[1]
-        proxy = "http://ebf4eec57ff82dd93e49e244671fe88c67bf0168:antibot=true@proxy.zenrows.com:8001"
-        proxies = {"http": proxy, "https": proxy}
-        i = requests.get(url, proxies=proxies, verify=False) 
+        i = selenium.get(url) 
         embedtemp = i.text.split('"contentUrl":"')[1]
         embed = embedtemp.split('"')[0]
         u = embed.replace("\/", "/")
         await message.reply_text(u)
-        istek = requests.get(u, proxies=proxies, verify=False)
+        istek = selenium.get(u)
         corba = BeautifulSoup(istek.content, "lxml")
         LOGGER.info(corba)
         await message.reply_text(istek.url)
