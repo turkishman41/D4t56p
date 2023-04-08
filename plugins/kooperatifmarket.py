@@ -11,10 +11,10 @@ LOGGER = logging.getLogger(__name__)
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 butonlar = InlineKeyboardMarkup([[InlineKeyboardButton(f'Bim Gelecek Hafta Salı', callback_data='bimges')]])
 
-@Client.on_message(filters.command('koop'))
-async def koop(bot, message):
+@Client.on_message(filters.command('dizigom'))
+async def dizigom(bot, message):
     try:
-        url = "https://www.kooperatifmarket.com.tr/firsatlar-kampanyalar/taptaze-kampanyalar/"
+        url = message.text.split(" ")[1]
         i = requests.get(url)
         corba = BeautifulSoup(i.content, "lxml")
         LOGGER.info(corba)
