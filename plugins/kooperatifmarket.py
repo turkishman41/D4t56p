@@ -14,7 +14,7 @@ butonlar = InlineKeyboardMarkup([[InlineKeyboardButton(f'Bim Gelecek Hafta Salı
 @Client.on_message(filters.command('koop'))
 async def koop(bot, message):
     try:
-        url = "https://www.akakce.com/brosurler/kooperatifmarket-15-mart-2023-aktuel-katalogu-firsat-indirim-26738"
+        url = "https://www.kooperatifmarket.com.tr/firsatlar-kampanyalar/taptaze-kampanyalar/"
         i = requests.get(url)
         corba = BeautifulSoup(i.content, "lxml")
         LOGGER.info(corba)
