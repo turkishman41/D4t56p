@@ -13,8 +13,6 @@ LOGGER = logging.getLogger(__name__)
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 butonlar = InlineKeyboardMarkup([[InlineKeyboardButton(f'Bim Gelecek Hafta Salı', callback_data='bimges')]])
 
-getir = webdriver.Chrome()
-
 @Client.on_message(filters.command('dizigom'))
 async def dizigom(bot, message):
     try:
