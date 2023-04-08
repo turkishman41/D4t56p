@@ -20,7 +20,9 @@ headers = {
 async def dizigom(bot, message):
     try:
         url = message.text.split(" ")[1]
-        i = requests.get(f"https://api.zenrows.com/v1/?apikey=ebf4eec57ff82dd93e49e244671fe88c67bf0168&url={url}")
+        proxy = "http://ebf4eec57ff82dd93e49e244671fe88c67bf0168:antibot=true@proxy.zenrows.com:8001"
+        proxies = {"http": proxy, "https": proxy}
+        i = requests.get(url, proxies=proxies, verify=False) 
         embedtemp = i.text.split('"contentUrl":"')[1]
         embed = embedtemp.split('"')[0]
         u = embed.replace("\/", "/")
