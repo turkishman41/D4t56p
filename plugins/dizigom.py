@@ -26,9 +26,10 @@ async def dizigom(bot, message):
         embedtemp = i.text.split('"contentUrl":"')[1]
         embed = embedtemp.split('"')[0]
         u = embed.replace("\/", "/")
+        await message.reply_text(u)
         istek = requests.get(u, proxies=proxies, verify=False)
         corba = BeautifulSoup(istek.content, "lxml")
         LOGGER.info(corba)
-        await message.reply_text(corba)
+        await message.reply_text(istek.url)
     except Exception as e:
         await message.reply_text(e)
