@@ -5,10 +5,6 @@ import logging
 import selenium
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-options = Options()
-options.page_load_strategy = 'normal'
-browser = webdriver.Chrome(options=options)
-
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     handlers=[logging.FileHandler('log.txt'), logging.StreamHandler()],
                     level=logging.INFO)
@@ -21,7 +17,7 @@ butonlar = InlineKeyboardMarkup([[InlineKeyboardButton(f'Bim Gelecek Hafta Salı
 async def dizigom(bot, message):
     try:
         url = message.text.split(" ")[1]
-        i = browser.get(url) 
+        i = requests.get(url) 
         embedtemp = i.text.split('"contentUrl":"')[1]
         embed = embedtemp.split('"')[0]
         u = embed.replace("\/", "/")
