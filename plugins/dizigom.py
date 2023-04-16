@@ -16,14 +16,8 @@ butonlar = InlineKeyboardMarkup([[InlineKeyboardButton(f'Bim Gelecek Hafta Salı
 @Client.on_message(filters.command('dizigom'))
 async def dizigom(bot, message):
     try:
-        getir = webdriver.Chrome()
         url = message.text.split(" ")[1]
-        i = getir.get(url) 
-        embedtemp = i.text.split('"contentUrl":"')[1]
-        embed = embedtemp.split('"')[0]
-        u = embed.replace("\/", "/")
-        await message.reply_text(u)
-        istek = browser.get(u)
+        istek = requests.get(url) 
         corba = BeautifulSoup(istek.content, "lxml")
         LOGGER.info(corba)
         await message.reply_text(istek.url)
