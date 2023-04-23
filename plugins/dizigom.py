@@ -18,7 +18,7 @@ async def fox(bot, message):
     try:
         mes = message.text.split(" ")
         if len(mes) < 3:
-            await message.reply_text("Yanlış Kullanım doğru kullanım:\n\n/fox https://www.fox.com.tr/Darmaduman/bolum/1 9)
+            await message.reply_text("Yanlış Kullanım doğru kullanım:\n\n/fox https://www.fox.com.tr/Darmaduman/bolum/1 9")
         else:
             url = mes[1]
             say = int(mes[2])
@@ -29,8 +29,8 @@ async def fox(bot, message):
                 istek = requests.get(uri) 
                 if 'videoSrc' in istek.text:
                     temp = istek.text.split("videoSrc : '")[1]
-                    url = temp.split("'")[0]
-                    await message.reply_text(url)
+                    text = temp.split("'")[0]
+                    await message.reply_text(f"{bolum}. Bölüm için m3u8: {text}")
                 else:
                     await message.reply_text(f"{bolum}. için m3u8 Alamadım :(")
     except Exception as e:
