@@ -35,6 +35,7 @@ async def aldinaldingelecekhafta(bot, message):
         fotolar = []
         for foto in afislerr:
             photo = foto.get('src')
+            await message.reply_text(photo)
             fotolar.append(photo)
         for brosur in fotolar:
             await bot.send_photo(
