@@ -35,7 +35,7 @@ async def star(bot, message):
                     LOGGER.info(jso)
                     await message.reply_text(url1) 
                     title = jso['data']['filename']
-                    await message.reply_text(jso)
+                    await message.reply_text(title)
                 else:
                     await message.reply_text(f"{bolum}. için m3u8 Alamadım :(")
     except Exception as e:
