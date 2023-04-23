@@ -5,4 +5,4 @@ bs4
 lxml
 telegraph
 selenium
-urlopen
+urllib
