@@ -34,6 +34,7 @@ async def star(bot, message):
                     jso = t.json()
                     LOGGER.info(jso)
                     await message.reply_text(url1) 
+                    title = jso['data']['filename']
                     await message.reply_text(jso)
                 else:
                     await message.reply_text(f"{bolum}. için m3u8 Alamadım :(")
