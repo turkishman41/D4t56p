@@ -31,6 +31,7 @@ async def aldinaldingelecekhafta(bot, message):
         url = "https://www.a101.com.tr/aldin-aldin-gelecek-hafta-brosuru"
         r = requests.get(url)
         c = BeautifulSoup(r.content, "lxml")
+        LOGGER.info(c)
         afislerr = c.findAll('img', attrs={"class":"image0"})
         fotolar = []
         for foto in afislerr:
