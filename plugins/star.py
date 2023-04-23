@@ -22,6 +22,8 @@ async def star(bot, message):
             url = mes[1]
             say = int(mes[2])
             sayi = say + 1
+            r = requests.get(url)
+            LOGGER.info(r.content)
             for bolum in range(1, sayi):
                 bolsay = url.split("/")[6]
                 await message.reply_text(bolsay)
