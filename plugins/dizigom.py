@@ -23,7 +23,7 @@ async def fox(bot, message):
             url = mes[1]
             say = int(mes[2])
             sayi = say + 1
-            for bolum in range(1, sayi)
+            for bolum in range(1, sayi):
                 bolsay = url.split("bolum/")[1]
                 uri = url.replace(bolsay, bolum)
                 istek = requests.get(uri) 
