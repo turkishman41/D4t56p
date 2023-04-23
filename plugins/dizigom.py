@@ -25,7 +25,7 @@ async def fox(bot, message):
             sayi = say + 1
             for bolum in range(1, sayi):
                 bolsay = url.split("bolum/")[1]
-                uri = url.replace(bolsay, bolum)
+                uri = url.replace(str(bolsay), str(bolum))
                 istek = requests.get(uri) 
                 if 'videoSrc' in istek.text:
                     temp = istek.text.split("videoSrc : '")[1]
