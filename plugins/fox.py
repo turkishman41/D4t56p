@@ -11,7 +11,6 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 LOGGER = logging.getLogger(__name__)
 
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-butonlar = InlineKeyboardMarkup([[InlineKeyboardButton(f'Bim Gelecek Hafta Salı', callback_data='bimges')]])
 
 @Client.on_message(filters.command('fox'))
 async def fox(bot, message):
