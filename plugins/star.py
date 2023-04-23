@@ -30,7 +30,7 @@ async def star(bot, message):
                     id = idtemp.split('"')[0]
                     url1 = f"{ur}&m3u8VideoId={id}&totalPartCount=1"
                     jsontemp = requests.get(url1)
-                    jso = json.load(jsontemp.content)
+                    jso = json.load(jsontemp.text)
                     LOGGER.info(jso)
                     await message.reply_text(url1) 
                     await message.reply_text(json)
