@@ -8,7 +8,6 @@ LOGGER = logging.getLogger(__name__)
 import json
 
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-import urllib
 
 @Client.on_message(filters.command('star'))
 async def star(bot, message):
