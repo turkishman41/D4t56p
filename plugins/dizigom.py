@@ -20,8 +20,8 @@ async def fox(bot, message):
         istek = requests.get(url) 
         corba = BeautifulSoup(istek.content, "lxml")
         LOGGER.info(corba)
-        if 'videoSrc' in istek.content:
-            temp = istek.content.split("videoSrc : '")[1]
+        if 'videoSrc' in istek.text:
+            temp = istek.text.split("videoSrc : '")[1]
             url = temp.split("'")[0]
             await message.reply_text(url)
         else:
