@@ -30,7 +30,7 @@ async def star(bot, message):
                 await message.reply_text(url)
             for bolum in range(1, sayi):
                 bolsay = url.split("/")[7]
-                uri = url.replace(str(bolsay), f"{bolum}-bolum"))
+                uri = url.replace(str(bolsay), f"{bolum}-bolum")
                 await message.reply_text(uri) 
                 istek = requests.get(uri) 
                 if 'videoSrc' in istek.text:
