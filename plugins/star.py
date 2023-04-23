@@ -37,7 +37,7 @@ async def star(bot, message):
                     title = jso['data']['filename']
                     isim = title.split("/")[3]
                     await message.reply_text(isim)
-                    urltemp = jso['data']['flavors'][0]['hls']
+                    urltemp = jso['data']['flavors']['0']['hls']
                     await message.reply_text(urltemp)
                 else:
                     await message.reply_text(f"{bolum}. için m3u8 Alamadım :(")
