@@ -26,8 +26,8 @@ async def star(bot, message):
                 ur = urtemp.split('"')[0]
                 idtemp = temp.split('"m3u8VideoId": "')[1]
                 id = idtemp.split('"')[0]
-                url = f"{ur}&m3u8VideoId={id}&totalPartCount=1"
-                await message.reply_text(url)
+                url1 = f"{ur}&m3u8VideoId={id}&totalPartCount=1"
+                await message.reply_text(url1)
             for bolum in range(1, sayi):
                 bolsay = url.split("/")[7]
                 uri = url.replace(str(bolsay), f"{bolum}-bolum")
