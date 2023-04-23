@@ -6,8 +6,9 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
                     level=logging.INFO)
 LOGGER = logging.getLogger(__name__)
 import json
+
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-import urlopen
+import urllib
 
 @Client.on_message(filters.command('star'))
 async def star(bot, message):
@@ -30,7 +31,7 @@ async def star(bot, message):
                     idtemp = temp.split('"m3u8VideoId": "')[1]
                     id = idtemp.split('"')[0]
                     url1 = f"{ur}&m3u8VideoId={id}&totalPartCount=1"
-                    jsontemp = urlopen(url1)
+                    jsontemp = urllib.request.urlopen(url1)
                     jso = json.load(jsontemp)
                     LOGGER.info(jso)
                     await message.reply_text(url1) 
