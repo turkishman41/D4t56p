@@ -33,12 +33,11 @@ async def star(bot, message):
                     t = requests.get(url1)
                     jso = t.json()
                     LOGGER.info(jso)
-                    await message.reply_text(url1) 
                     title = jso['data']['filename']
                     isim = title.split("/")[3]
-                    await message.reply_text(isim)
                     urltemp = jso['data']['flavors']['0']['file_url_1']
-                    await message.reply_text(urltemp)
+                    url = urltemp.replace("playlist", isim)
+                    await message.reply_text(url)
                 else:
                     await message.reply_text(f"{bolum}. için m3u8 Alamadım :(")
     except Exception as e:
