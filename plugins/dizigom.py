@@ -16,15 +16,22 @@ butonlar = InlineKeyboardMarkup([[InlineKeyboardButton(f'Bim Gelecek Hafta Salı
 @Client.on_message(filters.command('fox'))
 async def fox(bot, message):
     try:
-        url = message.text.split(" ")[1]
-        istek = requests.get(url) 
-        corba = BeautifulSoup(istek.content, "lxml")
-        LOGGER.info(corba)
-        if 'videoSrc' in istek.text:
-            temp = istek.text.split("videoSrc : '")[1]
-            url = temp.split("'")[0]
-            await message.reply_text(url)
+        mes = message.text.split(" ")
+        if len(mes) < 3:
+            await message.reply_text("Yanlış Kullanım doğru kullanım:\n\n/fox https://www.fox.com.tr/Darmaduman/bolum/1 9)
         else:
-            await message.reply_text("m3u8 Alamadım :(")
+            url = mes[1]
+            say = int(mes[2])
+            sayi = say + 1
+            for bolum in range(1, sayi)
+                bolsay = url.split("bolum/")[1]
+                uri = url.replace(bolsay, bolum)
+                istek = requests.get(uri) 
+                if 'videoSrc' in istek.text:
+                    temp = istek.text.split("videoSrc : '")[1]
+                    url = temp.split("'")[0]
+                    await message.reply_text(url)
+                else:
+                    await message.reply_text(f"{bolum}. için m3u8 Alamadım :(")
     except Exception as e:
         await message.reply_text(e)
