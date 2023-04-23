@@ -30,13 +30,17 @@ async def star(bot, message):
                 await message.reply_text(url1)
             for bolum in range(1, sayi):
                 bolsay = url.split("/")[7]
-                uri = url.replace(str(bolsay), f"{bolum}-bolum")
-                await message.reply_text(uri) 
-                istek = requests.get(uri) 
-                if 'videoSrc' in istek.text:
-                    temp = istek.text.split("videoSrc : '")[1]
-                    text = temp.split("'")[0]
-                    await message.reply_text(f"{bolum}. Bölüm için m3u8: {text}")
+                uri = url.replace(str(bolsay), f"{bolum}-bolum") 
+                r = requests.get(uri) 
+                LOGGER.info(r.content)
+                if '\rvar videoDataList' in r.text:
+                    temp = r.text.split('\rvar videoDataList')[1]
+                    urtemp = temp.split('"videoUrl": "')[1]
+                    ur = urtemp.split('"')[0]
+                    idtemp = temp.split('"m3u8VideoId": "')[1]
+                    id = idtemp.split('"')[0]
+                    url1 = f"{ur}&m3u8VideoId={id}&totalPartCount=1"
+                    await message.reply_text(url1)
                 else:
                     await message.reply_text(f"{bolum}. için m3u8 Alamadım :(")
     except Exception as e:
