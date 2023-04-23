@@ -32,11 +32,10 @@ async def aldinaldingelecekhafta(bot, message):
         r = requests.get(url)
         c = BeautifulSoup(r.content, "lxml")
         LOGGER.info(c)
-        afislerr = c.findAll('img', attrs={"class":"image0"})
+        afislerr = c.findAll('img', attrs={"draggable":"false"})
         fotolar = []
         for foto in afislerr:
             photo = foto.get('src')
-            await message.reply_text(photo)
             fotolar.append(photo)
         for brosur in fotolar:
             await bot.send_photo(
