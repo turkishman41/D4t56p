@@ -5,7 +5,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
                     handlers=[logging.FileHandler('log.txt'), logging.StreamHandler()],
                     level=logging.INFO)
 LOGGER = logging.getLogger(__name__)
-
+import json
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 @Client.on_message(filters.command('star'))
@@ -30,8 +30,8 @@ async def star(bot, message):
                     id = idtemp.split('"')[0]
                     url1 = f"{ur}&m3u8VideoId={id}&totalPartCount=1"
                     jsontemp = requests.get(url1)
-                    json = json.load(jsontemp.content)
-                    LOGGER.info(json)
+                    jso = json.load(jsontemp.content)
+                    LOGGER.info(jso)
                     await message.reply_text(url1) 
                     await message.reply_text(json)
                 else:
