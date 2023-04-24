@@ -22,7 +22,6 @@ async def star(bot, message):
             bolsay = url.split("/")[7]
             for bolum in range(1, sayi):
                 uri = url.replace(str(bolsay), f"{bolum}-bolum") 
-                await message.reply_text(uri) 
                 r = requests.get(uri) 
                 if '\rvar videoDataList' in r.text:
                     temp = r.text.split('\rvar videoDataList')[1]
@@ -37,8 +36,8 @@ async def star(bot, message):
                     title = jso['data']['filename']
                     isim = title.split("/")[3]
                     urltemp = jso['data']['flavors']['hds']
-                    urll = urltemp.replace("playlist", isim)
-                    await message.reply_text(urll)
+                    urll = urltemp.replace("playlist", "chunklist_b600000")
+                    await message.reply_text(f"{urll} | {isim}")
                 else:
                     await message.reply_text(f"{bolum}. için m3u8 Alamadım :(")
     except Exception as e:
