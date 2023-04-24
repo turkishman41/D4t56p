@@ -37,7 +37,7 @@ async def star(bot, message):
                     isim = title.split("/")[3]
                     urltemp = jso['data']['flavors']['hds']
                     urll = urltemp.replace("playlist", "chunklist_b600000")
-                    await message.reply_text(f"{urll} | {isim}")
+                    await message.reply_text(f"{urll} | {isim}.mp4")
                 else:
                     await message.reply_text(f"{bolum}. için m3u8 Alamadım :(")
     except Exception as e:
