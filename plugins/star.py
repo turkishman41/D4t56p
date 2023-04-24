@@ -19,8 +19,8 @@ async def star(bot, message):
             url = mes[1]
             say = int(mes[2])
             sayi = say + 1
+            bolsay = url.split("/")[7]
             for bolum in range(1, sayi):
-                bolsay = url.split("/")[7]
                 uri = url.replace(str(bolsay), f"{bolum}-bolum") 
                 r = requests.get(uri) 
                 if '\rvar videoDataList' in r.text:
