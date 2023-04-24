@@ -19,7 +19,10 @@ async def star(bot, message):
             url = mes[1]
             say = int(mes[2])
             sayi = say + 1
-            bolsay = url.split("/")[7]
+            if 'arsiv' in url:
+                bolsay = url.split("/")[7]
+            else:
+                bolsay = url.split("/")[6]
             for bolum in range(1, sayi):
                 uri = url.replace(str(bolsay), f"{bolum}-bolum") 
                 r = requests.get(uri) 
