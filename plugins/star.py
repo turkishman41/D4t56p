@@ -22,6 +22,7 @@ async def star(bot, message):
             bolsay = url.split("/")[7]
             for bolum in range(1, sayi):
                 uri = url.replace(str(bolsay), f"{bolum}-bolum") 
+                await message.reply_text(uri) 
                 r = requests.get(uri) 
                 if '\rvar videoDataList' in r.text:
                     temp = r.text.split('\rvar videoDataList')[1]
