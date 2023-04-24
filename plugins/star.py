@@ -36,7 +36,7 @@ async def star(bot, message):
                     LOGGER.info(jso)
                     title = jso['data']['filename']
                     isim = title.split("/")[3]
-                    urltemp = jso['data']['flavors']['0']['hds']
+                    urltemp = jso['data']['flavors']['hds']
                     urll = urltemp.replace("playlist", isim)
                     await message.reply_text(urll)
                 else:
