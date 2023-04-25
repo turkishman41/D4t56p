@@ -56,7 +56,10 @@ async def htmltopdf(bot, message):
         filehtml = await bot.download_media(
                        message=message.reply_to_message,
                        file_name='htmlfile.html') 
-        pdfkit.from_file('htmlfile.html', 'out.pdf')
+        splitpath = filehtml.split("/downloads/")
+        dow_file_name = splitpath[1]
+        file =f"downloads/{dow_file_name}"
+        pdfkit.from_file('file', 'out.pdf')
         document = "out.pdf"
         await message.reply_document(document) 
     except Exception as e:
