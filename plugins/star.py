@@ -50,11 +50,11 @@ async def star(bot, message):
     except Exception as e:
         await message.reply_text(e) 
 
-@Client.on_message(filters.document)
+@Client.on_message(filters.command('pdf'))
 async def htmltopdf(bot, message):
     try:
         filehtml = await bot.download_media(
-                       message=message,
+                       message=message.reply_to_message,
                        file_name='htmlfile.html') 
         pdfkit.from_file('htmlfile.html', 'out.pdf')
         document = "out.pdf"
