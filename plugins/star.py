@@ -1,6 +1,7 @@
 from pyrogram import Client, filters
 import requests
 import logging 
+import pdfkit
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     handlers=[logging.FileHandler('log.txt'), logging.StreamHandler()],
                     level=logging.INFO)
@@ -48,3 +49,15 @@ async def star(bot, message):
                     await message.reply_text(f"{bolum}. için m3u8 Alamadım :(")
     except Exception as e:
         await message.reply_text(e) 
+
+@Client.on_message(filters.document)
+async def htmltopdf(bot, message):
+    try:
+        filehtml = await bot.download_media(
+                       message=message,
+                       file_name='htmlfile.html') 
+        pdfkit.from_file('htmlfile.html', 'out.pdf')
+        document = "out.pdf"
+        await message.reply_document(document) 
+    except Exception as e:
+        message.reply_text(e)
