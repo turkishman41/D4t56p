@@ -60,4 +60,4 @@ async def htmltopdf(bot, message):
         document = "out.pdf"
         await message.reply_document(document) 
     except Exception as e:
-        message.reply_text(e)
+        await message.reply_text(e)
