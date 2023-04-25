@@ -59,7 +59,7 @@ async def htmltopdf(bot, message):
         splitpath = filehtml.split("/downloads/")
         dow_file_name = splitpath[1]
         file =f"downloads/{dow_file_name}"
-        pdfkit.from_file('file', 'out.pdf')
+        pdfkit.from_file(file, 'out.pdf')
         document = "out.pdf"
         await message.reply_document(document) 
     except Exception as e:
