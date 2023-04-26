@@ -29,7 +29,12 @@ async def fox(bot, message):
                 if 'videoSrc' in istek.text:
                     temp = istek.text.split("videoSrc : '")[1]
                     text = temp.split("'")[0]
-                    await message.reply_text(f"{bolum}. Bölüm için m3u8: {text}")
+                    if '<title>' in istek.text:
+                        d = istek.text.split("<title>")[1]
+                        isim = d.split("</title>")[0]
+                        await message.reply_text(f"{text} | {isim}.mp4")
+                    else:
+                        await message.reply_text(f"{text} | {bolum}. Bölüm.mp4")
                 else:
                     await message.reply_text(f"{bolum}. için m3u8 Alamadım :(")
     except Exception as e:
