@@ -6,3 +6,4 @@ lxml
 telegraph
 selenium
 pdfkit
+pyromod
