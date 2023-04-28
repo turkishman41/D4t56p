@@ -30,7 +30,7 @@ async def sohbetediliyor(bot, message, secilensayi, kere):
 async def buyuktahmin(bot, message, secilensayi, kere):
     tahmin = await bot.ask(message.chat.id, "Çok Söyledin aşağıya in")
     kere +=1
-    await tahmingetir(bot, message, tahmin, secilensayi)
+    await tahmingetir(bot, message, tahmin, secilensayi, kere)
 
 async def kucuktahmin(bot, message, secilensayi, kere):
 
@@ -38,7 +38,7 @@ async def kucuktahmin(bot, message, secilensayi, kere):
 
     kere +=1
 
-    await tahmingetir(bot, message, tahmin, secilensayi)
+    await tahmingetir(bot, message, tahmin, secilensayi, kere)
 
  
     
