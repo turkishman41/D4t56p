@@ -14,11 +14,11 @@ async def tahmingetir(bot, message, tahmin, secilensayi, kere):
         text = tahmin.text
         if not text.isdigit():
             await sohbetediliyor(bot, message, secilensayi, kere) 
-        elif int(tahmin) == int(secilensayi):
+        elif int(text) == int(secilensayi):
             await bot.send_message(message.chat.id, f"Tebrikler {kere} deneyişte Buldun") 
-        elif int(tahmin) > int(secilensayi):
+        elif int(text) > int(secilensayi):
             await buyuktahmin(bot, message, secilensayi, kere)
-        elif int(tahmin) < int(secilensayi):
+        elif int(text) < int(secilensayi):
             await kucuktahmin(bot, message, secilensayi, kere)
 
     except Exception as e:
