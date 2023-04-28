@@ -13,7 +13,12 @@ async def tahmingetir(bot, message, tahmin, secilensayi, kere):
     try:
         sayisi = int(tahmin)
         if sayisi == int(secilensayi):
-            await bot.send_message(message.chat.id ) 
+            await bot.send_message(message.chat.id, f"Tebrikler {kere} deneyişte Buldun") 
+        elif sayisi > int(secilensayi):
+            buyuktahmin(bot, message, secilensayi, kere)
+        elif sayisi < int(secilensayi):
+            kucuktahmin(bot, message, secilensayi, kere)
+
     except:
         sohbetediliyor(bot, message, secilensayi)
         
