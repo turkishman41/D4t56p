@@ -28,7 +28,7 @@ async def sohbetediliyor(bot, message, secilensayi, kere):
     tahmingetir(bot, message, tahmin, secilensayi)
     
 @Client.on_message(filters.command('sayi'))
-async def sayioyunu(bot, message):
+async def sayioyun(bot, message):
     try:
         secilensayi = random.randint(1, 100)
         kere = 0
