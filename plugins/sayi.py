@@ -11,8 +11,8 @@ async def sayitahmin(bot, message, secilensayi, kere):
     
 async def tahmingetir(bot, message, tahmin, secilensayi, kere):
     try:
-        
-        if not tahmin.isdigit():
+        text = tahmin.text
+        if not text.isdigit():
             await sohbetediliyor(bot, message, secilensayi, kere) 
         elif int(tahmin) == int(secilensayi):
             await bot.send_message(message.chat.id, f"Tebrikler {kere} deneyişte Buldun") 
