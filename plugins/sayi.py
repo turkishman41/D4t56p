@@ -55,6 +55,6 @@ async def sayioyun(bot, message):
     try:
         secilensayi = random.randint(1, 100)
         kere = 0
-        await sayitahmin(bot, message, kere, secilensayi)
+        await sayitahmin(bot, message, secilensayi, kere)
     except Exception as e:
         await message.reply_text(e)
