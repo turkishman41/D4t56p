@@ -23,6 +23,7 @@ async def tahmingetir(bot, message, tahmin, secilensayi, kere):
 
     except Exception as e:
         await message.reply_text(e)
+        
 async def sohbetediliyor(bot, message, secilensayi, kere):
     tahmin = await bot.ask(message.chat.id, "Lütfen Oyun Oynanırken Sohbet Etmeyin 😡") # Yeni bir tahmin mesajı uyatı biçiminde gönderildi.
     kere +=1
