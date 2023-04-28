@@ -11,17 +11,18 @@ async def sayitahmin(bot, message, secilensayi, kere):
     
 async def tahmingetir(bot, message, tahmin, secilensayi, kere):
     try:
-        sayisi = int(tahmin)
-        if sayisi == int(secilensayi):
+        
+        if not tahmin.isdigit():
+            await sohbetediliyor(bot, message, secilensayi, kere) 
+        elif int(tahmin) == int(secilensayi):
             await bot.send_message(message.chat.id, f"Tebrikler {kere} deneyişte Buldun") 
-        elif sayisi > int(secilensayi):
+        elif int(tahmin) > int(secilensayi):
             await buyuktahmin(bot, message, secilensayi, kere)
-        elif sayisi < int(secilensayi):
+        elif int(tahmin) < int(secilensayi):
             await kucuktahmin(bot, message, secilensayi, kere)
 
     except:
-        await sohbetediliyor(bot, message, secilensayi, kere)
-        
+        print(e)
 async def sohbetediliyor(bot, message, secilensayi, kere):
     tahmin = await bot.ask(message.chat.id, "Lütfen Oyun Oynanırken Sohbet Etmeyin 😡")
     kere +=1
