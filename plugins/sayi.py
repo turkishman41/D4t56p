@@ -25,7 +25,7 @@ async def tahmingetir(bot, message, tahmin, secilensayi, kere):
 async def sohbetediliyor(bot, message, secilensayi, kere):
     tahmin = await bot.ask(message.chat.id, "Lütfen Oyun Oynanırken Sohbet Etmeyin 😡")
     kere +=1
-    await tahmingetir(bot, message, tahmin, secilensayi)
+    await tahmingetir(bot, message, tahmin, secilensayi, kere)
     
 async def buyuktahmin(bot, message, secilensayi, kere):
     tahmin = await bot.ask(message.chat.id, "Çok Söyledin aşağıya in")
