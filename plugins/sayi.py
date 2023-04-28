@@ -1,7 +1,7 @@
 from pyrogram import Client, filters
 from pyromod import listen
 import random
-
+# :d
 
 
 async def sayitahmin(bot, message, secilensayi, kere):
