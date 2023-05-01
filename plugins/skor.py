@@ -18,10 +18,11 @@ async def skorlar(bot, message):
     jsonum = jsontemp.split("]")[0]
     jsoncuk = json.loads(jsonum)
     LOGGER.info(jsoncuk)
+    await message.reply_text(jsoncuk)
     await message.reply_text(f"{jsoncuk['tournamentName']}")
 @Client.on_message(filters.command('skor'))
 async def skorgetir(bot, message):
     try:
         skor = await skorlar(bot, message)
     except Exception as e:
-        await message.reply_text(e)
+        await message.reply_text(f"hata: {e}")
