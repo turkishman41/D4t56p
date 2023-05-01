@@ -9,20 +9,12 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 LOGGER = logging.getLogger(__name__)
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-sporxcanli = "https://m.sporx.com/canliskorlar/"
+skorurl = "https://www.flashscore.com.tr/futbol/turkiye/super-li-g/#/lh8AshXk/table/overall"
 
 async def skorlar(bot, message):
-    istek = requests.get(sporxcanli)
+    istek = requests.get(skorurl)
     corbam = BeautifulSoup(istek.content, "lxml")
-    jsontemp = istek.text.split("jsonData = [")[1]
-    jsonum = jsontemp.split("]")[0]
-    text = dict(jsonum)
-    
-    await message.reply_text(text)
-    textjs = json.loads(text)
-    await message.reply_text(f"{textjs['tournamentName']}")
-    LOGGER.info(text)
-    
+    LOGGER.info(corbam)    
     
 @Client.on_message(filters.command('skor'))
 async def skorgetir(bot, message):
