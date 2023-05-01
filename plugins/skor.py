@@ -17,8 +17,9 @@ async def skorlar(bot, message):
     jsontemp = istek.text.split("jsonData = [")[1]
     jsonum = jsontemp.split("]")[0]
     text = json.dumps(jsonum)
-    textjs = json.load(text)
-    await message.reply_text(textjs)
+    
+    await message.reply_text(f"{text[1]}")
+    textjs = json.loads(jsonum)
     await message.reply_text(f"{textjs['tournamentName']}")
     LOGGER.info(text)
     
