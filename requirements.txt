@@ -7,3 +7,4 @@ telegraph
 selenium
 pdfkit
 pyromod
+html
