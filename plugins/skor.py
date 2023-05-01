@@ -19,7 +19,7 @@ async def skorlar(bot, message):
     text = json.dumps(jsonum)
     textjs = json.loads(text)
     await message.reply_text(textjs)
-    await message.reply_text(f"{textjs['tournamentName']}")
+    await message.reply_text(f"{textjs[0]}")
     LOGGER.info(text)
     
     
