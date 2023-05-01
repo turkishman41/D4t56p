@@ -16,6 +16,7 @@ async def skorlar(bot, message):
     corba = BeautifulSoup(istek.content, "html.parser")
     tablo = corba.find('table', {'class': 'soccer'})
     LOGGER.info(tablo)
+    LOGGER.info(corba)
     await message.reply_text(tablo)
     
 @Client.on_message(filters.command('skor'))
