@@ -16,7 +16,7 @@ async def skorlar(bot, message):
     corbam = BeautifulSoup(istek.content, "lxml")
     jsontemp = istek.text.split("jsonData = [")[1]
     jsonum = jsontemp.split("]")[0]
-    jsoncuk = jsonum.json()
+    jsoncuk = json.loads(jsonum)
     LOGGER.info(jsoncuk)
     await message.reply_text(f"{jsoncuk['tournamentName']}")
 @Client.on_message(filters.command('skor'))
