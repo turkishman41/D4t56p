@@ -13,8 +13,10 @@ skorurl = "https://www.flashscore.com.tr/futbol/turkiye/super-li-g/#/lh8AshXk/ta
 
 async def skorlar(bot, message):
     istek = requests.get(skorurl)
-    corbam = BeautifulSoup(istek.content, "lxml")
-    LOGGER.info(corbam)    
+    corba = BeautifulSoup(istek.content, "html.parser")
+    tablo = corba.find('table', {'class': 'soccer'})
+    LOGGER.info(tablo)
+    await message.reply_text(tablo)
     
 @Client.on_message(filters.command('skor'))
 async def skorgetir(bot, message):
