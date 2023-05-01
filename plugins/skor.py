@@ -9,12 +9,12 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 LOGGER = logging.getLogger(__name__)
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-skorurl = "https://www.flashscore.com.tr/futbol/turkiye/super-li-g/#/lh8AshXk/table/overall"
+skorurl = "https://www.mackolik.com/canli-sonuclar"
 
 async def skorlar(bot, message):
     istek = requests.get(skorurl)
     corba = BeautifulSoup(istek.content, "html.parser")
-    tablo = corba.find('table', {'class': 'soccer'})
+    tablo = corba.find('table', {'class': 'table table-hover table-striped table-condensed table-tight'})
     LOGGER.info(tablo)
     LOGGER.info(corba)
     await message.reply_text(tablo)
