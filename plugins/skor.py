@@ -16,9 +16,10 @@ async def skorlar(bot, message):
     corbam = BeautifulSoup(istek.content, "lxml")
     jsontemp = istek.text.split("jsonData = [")[1]
     jsonum = jsontemp.split("]")[0]
+    text = json.dumps(jsonum)
 
-    LOGGER.info(jsonum)
-    await message.reply_text(jsonum)
+    LOGGER.info(text)
+    await message.reply_text(text)
     
 @Client.on_message(filters.command('skor'))
 async def skorgetir(bot, message):
