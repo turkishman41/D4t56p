@@ -9,6 +9,7 @@ LOGGER = logging.getLogger(__name__)
 import json
 
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from bs4 import BeautifulSoup
 
 @Client.on_message(filters.command('star'))
 async def star(bot, message):
@@ -62,5 +63,16 @@ async def htmltopdf(bot, message):
         pdfkit.from_file(file, 'out.pdf')
         document = "out.pdf"
         await message.reply_document(document) 
+    except Exception as e:
+        await message.reply_text(e)
+
+
+@Client.on_message(filters.command('deneme'))
+async def denemeurl(bot, message):
+    try:
+        url = message.text.split(" ")[1]
+        r = requests.get(url)
+        corba = BeautifulSoup(r.content, "lxml") 
+        LOGGER.info(corba)
     except Exception as e:
         await message.reply_text(e)
