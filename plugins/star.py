@@ -73,6 +73,11 @@ async def denemeurl(bot, message):
         url = message.text.split(" ")[1]
         r = requests.get(url)
         corba = BeautifulSoup(r.content, "lxml") 
-        LOGGER.info(corba)
+        htmllinktemp = corba.find('div', attrs={"class":"video-container"})
+        htmllink = htmllinktemp.get("src")
+        await message.reply_text(htmllink)
+        m3u8istek = requests.get(htmllink)
+        m3u8corba = BeautifulSoup(m3u8istek.content, "lxml")
+        LOGGER.info(m3u8corba)
     except Exception as e:
         await message.reply_text(e)
