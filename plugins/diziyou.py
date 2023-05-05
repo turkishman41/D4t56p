@@ -34,7 +34,7 @@ async def diziyoum3u8getir(bot, message, url, say):
             altdil = a.get('label')
             altmes += f"Dil: {altdil}\nUrl: {alturl}\n\n"
         await message.reply_text(altmes)
-        await message.reply_text(f"{text} | {isim}.mp4")
+        await message.reply_text(f"{text} | {bolum} Bölüm.mp4")
         doc = "plugins/star.py"
         await message.reply_document(doc)
 
