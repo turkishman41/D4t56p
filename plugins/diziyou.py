@@ -12,7 +12,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from bs4 import BeautifulSoup
 
 async def diziyoum3u8getir(bot, message, url, say):
-        for bolum in range(1, say)
+        for bolum in range(1, say):
             urtemp = url.split("sezon-")[1]
             gitcek = urtemp.split("-")[0]
             uri = url.replace(f"{gitcek}", f"{bolum}")
