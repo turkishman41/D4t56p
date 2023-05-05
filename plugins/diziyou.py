@@ -43,7 +43,7 @@ async def denemeurl(bot, message):
     try:
         mes = message.text.split(" ")
         url = mes[1]
-        say = mes[2]
+        say = int(mes[2])
         say + 1
         await diziyoum3u8getir(bot, message, url, say)
     except Exception as e:
